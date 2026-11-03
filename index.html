@@ -51,7 +51,6 @@ img{max-width:100%}
 a{color:inherit}
 .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
 .mono{font-family:var(--mono)}
-.eyebrow{font:500 12px/1.2 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--bulb); margin:0 0 12px}
 h2{font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.1; margin:0 0 14px; letter-spacing:-.01em}
 .sub{color:var(--muted); font-size:17px; max-width:640px; margin:0 0 28px}
 section{position:relative}
@@ -82,10 +81,6 @@ section{position:relative}
 .top{position:sticky; top:0; z-index:40; background:rgba(11,9,22,.78); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,.06)}
 .top-in{display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:10px; padding-bottom:10px}
 .top-meta{font:500 12px/1.2 var(--mono); color:var(--muted); letter-spacing:.06em; text-transform:uppercase}
-.ticker{overflow:hidden; border-top:1px solid rgba(255,231,166,.18); border-bottom:1px solid rgba(255,231,166,.18); background:#120d1f}
-.ticker-track{display:flex; width:max-content; animation:tick 38s linear infinite}
-.ticker-track span{font:600 13px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--bulb); padding:11px 0; white-space:nowrap; text-shadow:0 0 8px rgba(255,207,107,.55)}
-.ticker-track i{font-style:normal; color:var(--pink); padding:0 18px; text-shadow:0 0 8px var(--pink)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ---------- Hero sign ---------- */
@@ -277,14 +272,6 @@ tr.s.pulse{outline-width:3px}
 .notes{border-top:1px solid #8b8678; padding-top:6px}
 .notes .hand{font-size:21px; line-height:1.15; display:inline}
 
-/* ---------- Credibility ---------- */
-.cards{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px}
-.card{background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:24px; position:relative; overflow:hidden}
-.card::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cc)}
-.card .eyebrow{color:var(--cc)}
-.card h3{font:700 15px/1.3 var(--sans); letter-spacing:.06em; text-transform:uppercase; margin:0 0 10px}
-.card p{margin:0; color:var(--muted); font-size:15.5px}
-
 /* ---------- Order of service ---------- */
 .program{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:40px; align-items:start}
 .booklet{background:#FFFBF0; color:#241d14; border-radius:6px; padding:10px; box-shadow:0 22px 60px rgba(0,0,0,.45)}
@@ -383,6 +370,66 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
   .ticker-track{transform:none}
   html{scroll-behavior:auto}
 }
+
+/* Event layout: one title, quiet section headings, open content. */
+body{background:var(--night);background-attachment:scroll}
+body::before{display:none}
+.sec{padding:64px 0}
+h2{font:400 clamp(25px,3vw,32px)/1.2 var(--sans);letter-spacing:-.025em}
+.sub{font-size:16px;line-height:1.65;max-width:660px;margin-bottom:28px}
+.hero{padding-top:38px;padding-bottom:64px}
+.lede{max-width:660px;font-size:clamp(17px,2vw,20px);line-height:1.65}
+.facts{gap:0;margin:24px auto 28px;color:var(--muted)}
+.facts li{padding:0 16px;background:none;border:0;border-radius:0;font-size:14px}
+.facts li+li{border-left:1px solid #514760}
+.btn{background:var(--pink);border-radius:4px;box-shadow:none;font-weight:600}
+.btn:hover{box-shadow:none;transform:translateY(-1px)}
+.btn-xl{font-size:17px;padding:17px 26px}
+.btn-ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px #746b86}
+.plaque{border-radius:3px;box-shadow:none}
+.ceremony{background:none;border-top:1px solid #332b41}
+.altar{background:none;border:0;border-radius:0;padding:0}
+.altar::before{display:none}
+.tab{background:none;border:0;border-bottom:2px solid transparent;border-radius:0;padding:10px 4px;margin-right:16px}
+.tab[aria-selected="true"]{background:none;color:var(--text);border-color:var(--pink);box-shadow:none}
+.tab[aria-selected="true"] small{color:var(--muted);border-color:#514760}
+.tab small{border:0;padding:0;font-size:10px}
+.partner figcaption{font:400 13px/1.4 var(--sans);letter-spacing:0;text-transform:none}
+.badge{background:none;color:var(--muted);font:400 12px/1 var(--sans);padding:0}
+.json{border-radius:3px}
+.explanation{border-top:1px solid #332b41;border-bottom:1px solid #332b41}
+.explanation-in{display:grid;grid-template-columns:1fr 1.5fr;gap:60px}
+.explanation p,.program-side>p{color:var(--muted);font-size:16px;line-height:1.7;margin:0 0 16px}
+.explanation strong{color:var(--text);font-weight:500}
+.program{gap:70px}
+.booklet{background:none;color:var(--text);padding:0;border-radius:0;box-shadow:none}
+.booklet-in{border:0;padding:0}
+.booklet h2{text-align:left;margin:0 0 24px}
+.booklet li{grid-template-columns:24px 1fr;border-top:1px solid #332b41;padding:16px 0}
+.booklet li::before{content:counter(svc);color:var(--dim);font:400 14px/1.4 var(--mono)}
+.booklet li b{font:500 16px/1.3 var(--sans);letter-spacing:0;text-transform:none}
+.booklet li span{color:var(--muted);line-height:1.6}
+.program-side .bring-title{color:var(--text);font-size:20px;margin-bottom:18px}
+.award{display:block;background:none;border:0;border-top:1px solid #332b41;border-radius:0;padding:24px 0 0;margin-top:28px}
+.award .rosette{display:none}
+.award .award-title{font-size:18px;color:var(--text);margin-bottom:10px}
+.award p{color:var(--muted);line-height:1.65}
+.std{padding:48px 0 64px;background:none}
+.std-card{background:none;border:0;border-radius:0;box-shadow:none;padding:32px 0 0;border-top:1px solid #332b41}
+.std-card::before,.std-card::after{display:none}
+.std-date{font:400 18px/1.5 var(--sans);letter-spacing:0}
+.std-where{font:400 14px/1.6 var(--sans);letter-spacing:0;text-transform:none;margin-bottom:24px}
+.dock{display:none!important}
+footer{padding-bottom:30px}
+@media(max-width:700px){
+ .sec{padding:44px 0}
+ .explanation-in{grid-template-columns:1fr;gap:12px}
+ .facts{gap:10px 0}
+ .facts li{font-size:12px;padding:0 9px}
+ .program{gap:36px}
+ .tab{margin-right:8px}
+}
+
 </style>
 </head>
 <body>
@@ -408,12 +455,7 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
   </div>
 </header>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Now marrying documents<i>♥</i>AWS re:Invent 2026<i>♥</i>Booth 155<i>♥</i>Dec 1 to 3<i>♥</i>15-minute ceremonies<i>♥</i>Till parse do us part<i>♥</i>What happens in Vegas gets structured<i>♥</i></span>
-    <span>Now marrying documents<i>♥</i>AWS re:Invent 2026<i>♥</i>Booth 155<i>♥</i>Dec 1 to 3<i>♥</i>15-minute ceremonies<i>♥</i>Till parse do us part<i>♥</i>What happens in Vegas gets structured<i>♥</i></span>
-  </div>
-</div>
+
 
 <main>
 <!-- ================= HERO ================= -->
@@ -440,25 +482,24 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
     </div>
     <div class="posts" aria-hidden="true"><span></span><span></span></div>
 
-    <p class="lede">Bring your messiest document to the LlamaIndex booth. We run it through <strong>LlamaParse</strong> and marry it to a schema, live, in a 15-minute ceremony. You leave with the structured output, a marriage certificate and a photo.</p>
+    <p class="lede">Bring a document to the LlamaIndex booth. In 15 minutes, we’ll turn it into structured data using <strong>LlamaParse</strong> and <strong>LlamaExtract</strong>. Take home the output, a marriage certificate and a photo.</p>
     <ul class="facts">
-      <li><span>The occasion</span>AWS re:Invent 2026</li>
-      <li><span>The venue</span>Las Vegas, booth 155</li>
-      <li><span>The dates</span>Dec 1 to 3</li>
+      <li>AWS re:Invent 2026</li>
+      <li>Las Vegas · Booth 155</li>
+      <li>December 1–3</li>
     </ul>
     <a class="btn btn-xl js-book" id="heroCta" href="#"><svg aria-hidden="true"><use href="#ring"/></svg>Book a ceremony</a>
-    <p class="micro">15 minutes. Bring a plus one. It can be a PDF.</p>
+    
   </div>
 </section>
 
-<hr class="gline">
+
 
 <!-- ================= CEREMONY (interactive LlamaExtract demo) ================= -->
 <section class="ceremony sec" id="ceremony">
   <div class="wrap">
-    <p class="eyebrow">The ceremony, in miniature</p>
-    <h2>Pick a partner. Say I do.</h2>
-    <p class="sub">Choose a messy document and watch LlamaExtract marry it to a schema, one field at a time. Every value comes back with a citation to where it was found.</p>
+    <h2>Try it with a sample document</h2>
+    <p class="sub">Choose a document, then select “I do” to see its fields extracted. Select a completed field to find it in the source.</p>
 
     <div class="tabs" role="tablist" aria-label="Choose a document">
       <button class="tab" role="tab" data-doc="invoice" aria-selected="true">Scanned invoice <small>PDF</small></button>
@@ -514,28 +555,13 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
   </div>
 </section>
 
-<!-- ================= CREDIBILITY ================= -->
-<section class="sec">
-  <div class="wrap">
-    <p class="eyebrow">Under the veil</p>
-    <h2>The ceremony is a joke.<br>The extraction is not.</h2>
-    <p class="sub">Every ceremony is a live run on your document, start to finish, while you watch. Here is what's doing the work.</p>
-    <div class="cards">
-      <div class="card" style="--cc:var(--cyan)">
-        <p class="eyebrow">LlamaParse</p>
-        <h3>Reads the whole page</h3>
-        <p>Layout first. Tables with merged cells, checkboxes, stamps, handwriting and scans that have seen better days all come through as clean, structured text.</p>
-      </div>
-      <div class="card" style="--cc:var(--pink)">
-        <p class="eyebrow">LlamaExtract</p>
-        <h3>Fills your schema</h3>
-        <p>You name the fields. It returns clean JSON, with dates, amounts and checkbox states normalized into values your systems can use.</p>
-      </div>
-      <div class="card" style="--cc:var(--orange)">
-        <p class="eyebrow">Citations</p>
-        <h3>Shows its work</h3>
-        <p>Each value comes back tied to where it was found on the page, so a person can check it before it lands anywhere important.</p>
-      </div>
+<!-- How the demo works -->
+<section class="sec explanation">
+  <div class="wrap explanation-in">
+    <h2>From document to JSON</h2>
+    <div>
+      <p><strong>LlamaParse</strong> reads the document’s text, tables and layout. <strong>LlamaExtract</strong> returns the fields you ask for as structured JSON.</p>
+      <p>Citations point back to the source, so you can check each value. At the booth, we’ll run this on a document you bring.</p>
     </div>
   </div>
 </section>
@@ -545,26 +571,22 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
   <div class="wrap program">
     <div class="booklet">
       <div class="booklet-in">
-        <h3>Order of Service</h3>
-        <p class="booklet-sub">Booth 155 · 15 minutes</p>
+        <h2>Your 15 minutes at the booth</h2>
+        
         <ol>
-          <li><b>The booking</b><span>Pick a 15-minute slot. One link, no paperwork.</span></li>
-          <li><b>The processional</b><span>Bring your document to booth 155. Anything sensitive? Bring a sample or a redacted copy.</span></li>
-          <li><b>The vows</b><span>Tell us what you need out of it. That becomes your schema.</span></li>
-          <li><b>The union</b><span>We parse it with LlamaParse and extract it with LlamaExtract, live.</span></li>
-          <li><b>The reception</b><span>You leave with your structured output, a marriage certificate and a photo.</span></li>
+          <li><b>Book a time</b><span>Choose a 15-minute slot.</span></li>
+          <li><b>Bring a document</b><span>Bring your document to booth 155. Anything sensitive? Bring a sample or a redacted copy.</span></li>
+          <li><b>Choose your fields</b><span>Tell us what you need out of it. That becomes your schema.</span></li>
+          <li><b>Watch the extraction</b><span>We parse it with LlamaParse and extract it with LlamaExtract, live.</span></li>
+          <li><b>Take it home</b><span>You leave with your structured output, a marriage certificate and a photo.</span></li>
         </ol>
       </div>
     </div>
 
     <div class="program-side">
-      <p class="eyebrow">All documents welcome</p>
-      <h2>Something old, something new, something scanned, something blueprint.</h2>
-      <ul class="docchips">
-        <li>PDFs</li><li>Word docs</li><li>Spreadsheets</li><li>Scanned forms</li><li>Slide decks</li>
-        <li>Photos of paperwork</li><li>Handwritten notes</li><li>Engineering drawings</li>
-        <li class="wild">That PDF someone printed, signed and scanned back in sideways</li>
-      </ul>
+      <p class="bring-title">What to bring</p>
+      <p>PDFs, Word documents, spreadsheets, scanned forms, slide decks, handwritten notes and engineering drawings are all welcome.</p>
+      <p>For sensitive documents, bring a sample or a redacted copy.</p>
 
       <div class="award">
         <svg class="rosette" viewBox="0 0 96 120" aria-hidden="true">
@@ -579,8 +601,8 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
           <text x="48" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" font-weight="600" fill="#FFE7A6" letter-spacing="1">DIFFICULT</text>
         </svg>
         <div>
-          <h3>The Most Difficult Partner award</h3>
-          <p>Bring the document your pipeline is scared of. Whoever brings the doc that gives us the hardest time wins a bonus prize.</p>
+          <p class="award-title">A prize for the most difficult document</p>
+          <p>Bring your hardest-to-process document. The one that gives us the most trouble wins a bonus prize.</p>
           <p>Rotated scans, tables inside tables, handwriting in the margins. We like a challenge.</p>
         </div>
       </div>
@@ -592,12 +614,12 @@ footer{border-top:1px solid rgba(255,255,255,.08); padding:34px 0 120px; color:v
 <section class="std" id="book">
   <div class="wrap">
     <div class="std-card">
-      <span class="neon">Save the date</span>
+      <h2>Meet us at booth 155</h2>
       <p class="std-date">December 1 to 3, 2026</p>
       <p class="std-where">AWS re:Invent · Las Vegas · Booth 155</p>
-      <p class="countdown" id="countdown"></p>
+      <p class="countdown" id="countdown" hidden></p>
       <a class="btn btn-xl js-book" id="finalCta" href="#"><svg aria-hidden="true"><use href="#ring"/></svg>Book a ceremony</a>
-      <p class="vegas-line">What happens in Vegas <b>gets structured.</b></p>
+      
     </div>
   </div>
 </section>
